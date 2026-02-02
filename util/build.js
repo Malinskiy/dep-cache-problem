@@ -20,7 +20,7 @@ ${generateEmojiHash(capitalize('build file'), 36)}
   console.log('✅ Binary file generated at dist/dep.bin');
 }
 
-generateBuild()
+// generateBuild()
 
 export {
   generateBuild

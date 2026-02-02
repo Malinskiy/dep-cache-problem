@@ -76,9 +76,10 @@ async function execute() {
   console.log(`Source tree hash: ${rootHash}`)
 
   const entries = await cache.load()
+  console.log(`${JSON.stringify(entries)}`)
   //Only the first one is found
   const cached = entries.find((entry) => entry.hash === rootHash)
-  if (cached == undefined) {
+  if (cached === undefined) {
     await generateBuild()
     const buildContent = fs.readFileSync('dist/dep.bin', 'utf8');
     cache.put(rootHash, state, buildContent)
@@ -88,6 +89,5 @@ async function execute() {
     fs.writeFileSync('dist/dep.bin', buildContent, 'utf8');
   }
 }
-
 
 execute();
