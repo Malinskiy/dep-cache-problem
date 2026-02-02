@@ -1,6 +1,6 @@
 import { generateEmojiHash } from '../src/emoji.js';
 import { capitalize } from '../src/lang.js';
-import fs  from 'fs';
+import fs from 'fs';
 
 async function doLotsOfWork() {
   // Simulate a time-consuming build process
@@ -20,4 +20,8 @@ ${generateEmojiHash(capitalize('build file'), 36)}
   console.log('✅ Binary file generated at dist/dep.bin');
 }
 
-generateBuild();
+generateBuild()
+
+export {
+  generateBuild
+}
