@@ -76,7 +76,6 @@ async function execute() {
   console.log(`Source tree hash: ${rootHash}`)
 
   const entries = await cache.load()
-  console.log(`${JSON.stringify(entries)}`)
   //Only the first one is found
   const cached = entries.find((entry) => entry.hash === rootHash)
   if (cached === undefined) {
@@ -87,6 +86,7 @@ async function execute() {
     const buildContent = cached.result
     fs.mkdirSync('dist/', { recursive: true });
     fs.writeFileSync('dist/dep.bin', buildContent, 'utf8');
+    console.log('✅ Binary file restored from cache at dist/dep.bin');
   }
 }
 
